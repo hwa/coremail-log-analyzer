@@ -1,0 +1,95 @@
+Name:                   coremail-logs
+Version:                0.0
+Synopsis:               Coremail system logs analysis
+
+Description:
+                        This library analyze Coremail system's 
+                        mailing logs.
+
+Author:                 Canhua Chen
+Copyright:              2013 Canhua Chen
+Maintainer:             Canhua Chen <chencanhua@fudan.edu.cn>
+
+License:                AllRightsReserved
+
+Stability:              Experimental
+
+Category:               Data Mining
+Build-type:             Simple
+Cabal-version:          >= 1.16
+
+--Extra-source-files:     
+
+--Source-repository head
+--  Type: git
+--  Location:
+
+Library
+  default-language:     Haskell98
+
+  ghc-options:          -Wall -O2 
+        
+  exposed-modules:
+                        Diamond.LogRecord
+                        Diamond.Parser.DALog
+                        Diamond.Parser.MTALog
+                        Diamond.Streams.LogFile
+                        Diamond.Mongo.Doc
+                        Diamond.Mongo.Action
+                        Diamond.Mongo.Json
+                        Diamond.Mongo.PyAPI
+                        Diamond.Analytics.Statistics
+                        Diamond.Utils.DateTime
+                        Diamond.Redis
+                        System.IO.Streams.Attoparsec.Text
+  other-modules:
+
+                        
+  build-depends:
+                        base >= 4.6.0.1 ,
+                        containers >= 0.5.0.0 ,
+                        text >= 0.11.3.1 ,
+                        bytestring >= 0.10.0.2 ,
+                        time >= 1.4.0.1 ,
+                        io-streams >= 1.1.0.3 ,
+                        attoparsec >= 0.10.4.0 ,
+                        iconv >= 0.4.1.1 ,
+                        bson >= 0.2.2 ,
+                        mongoDB >= 1.4.1,
+                        directory >= 1.2.0.1,
+                        unix >= 2.6.0.1,
+                        unordered-containers >= 0.2.3.0,
+                        hashable >= 1.1.2.5,
+                        aeson >= 0.7.0.0,
+                        HTTP >= 4000.2.8,
+                        hedis >= 0.6.3,
+                        network >= 2.4.1.2,
+                        resource-pool >= 0.2.3.0
+                        --http-streams >= 0.7.1.1
+
+Executable diamond-worker
+  default-language:     Haskell98
+  hs-source-dirs:       worker
+  main-is:              Main.hs
+
+  ghc-options:          -Wall -O2
+
+  build-depends:
+                        base >= 4.6.0.1 ,
+                        containers >= 0.5.0.0 ,
+                        text >= 0.11.3.1 ,
+                        bytestring >= 0.10.0.2 ,
+                        time >= 1.4.0.1 ,
+                        io-streams >= 1.1.0.3 ,
+                        attoparsec >= 0.10.4.0 ,
+                        iconv >= 0.4.1.1 ,
+                        bson >= 0.2.2 ,
+                        mongoDB >= 1.4.1,
+                        directory >= 1.2.0.1,
+                        unix >= 2.6.0.1,
+                        unordered-containers >= 0.2.3.0,
+                        hashable >= 1.1.2.5,
+                        aeson >= 0.7.0.0,
+                        hedis >= 0.6.3,
+                        resource-pool >= 0.2.3.0,
+                        coremail-logs >= 0.0
